@@ -18,6 +18,7 @@ jobs:
           echo "Ref: ${{ github.ref }}"
           echo "Ref:  ${{ secrets.GITHUB_TOKEN }}"   # Needed to get PR information
           echo "Ref:  ${{ secrets.SONAR_TOKEN }}}"   # Needed to get PR information
+          echo "^^^^^^^^^^^^^^^^"
           echo "Ref:  ${{ secrets.SONAR_HOST_URL }}}"   # Needed to get PR information
           
           
