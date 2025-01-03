@@ -1,0 +1,23 @@
+name: Variable Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-variables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show GitHub context
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Workflow: ${{ github.workflow }}"
+          echo "Event: ${{ github.event_name }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Ref:  ${{ secrets.GITHUB_TOKEN }}"   # Needed to get PR information
+          echo "Ref:  ${{ secrets.SONAR_TOKEN }}}"   # Needed to get PR information
+          echo "Ref:  ${{ secrets.SONAR_HOST_URL }}}"   # Needed to get PR information
+          
+          
