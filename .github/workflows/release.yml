@@ -48,8 +48,8 @@ jobs:
           persist-credentials: false
     - name: current_version
       run: echo "current_version=$(grep '# version' version.md | cut -d ' ' -f3)" >> $GITHUB_ENV
-    - name: FragileTech/bump-version
-      uses: FragileTech/bump-version@main
+    - name: bump2version-action         
+      uses: FragileTech/bump-version@v1.0.4
       with:
         current_version: "${{ env.current_version }}"
         files: version.md
