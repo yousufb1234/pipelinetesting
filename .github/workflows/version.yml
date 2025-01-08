@@ -1,0 +1,41 @@
+name: Version
+
+on: 
+  pull_request:
+  push:
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Automated Version Bump
+        uses: phips28/gh-action-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          minor-wording: 'add,Adds,new'
+          major-wording: 'MAJOR,cut-major'
+          patch-wording: 'patch,fixes'  # Providing patch-wording will override commits
+          rc-wording: 'RELEASE,alpha'
+
+
+
+      #name: Labeler
+# on: [pull_request_target]
+
+# jobs:
+#   label:
+
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: read
+#       pull-requests: write
+
+#     steps:
+#     - uses: actions/labeler@v4
+#       with:
+#         repo-token: "${{ secrets.GITHUB_TOKEN }}"
